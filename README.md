@@ -7,6 +7,7 @@
   - [Arduino](#arduino)
   - [Repo Structure](#repo-structure)
 - [Use](#use)
+- [License](#license)
 - [Hotkeys](#hotkeys)
 - [Limitations](#limitations)
 - [Parts List](#parts-list)
@@ -79,6 +80,11 @@ You need to compile your own Windows (64 and 32 bit) and Mac installers followin
 - On Windows... TODO: finish this.
 
 The first time you open the app, it will ask permission to access the webcam in a pop-up dialog.
+
+
+## License
+
+This work is distributed under an MIT license with exception to the "Lunch" font by Anthem Type.  See [Lunch Font](https://www.fontspace.com/lunch-font-f3679) for more details about licensing.
 
 
 ## Hotkeys
