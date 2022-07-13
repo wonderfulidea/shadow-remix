@@ -1,0 +1,42 @@
+body {
+	/* margin: 0; */
+}
+
+.item {
+	background-color: #eeeeee;
+}
+
+.lozad {
+	background-size: contain;
+	opacity: 0;
+  	transition: opacity 1s; 
+}
+.lozad.fadeIn {
+	opacity: 1;
+}
+
+.approveImage {
+	position: absolute;
+	top: 20px;
+    left: 20px;
+	padding: 5px 10px;
+	text-decoration: none;
+	font-size: 25px;
+	color: black;
+}
+
+.approveImage[data-approved="true"] {
+	background: rgba(0, 244, 0, 0.6);
+}
+
+.approveImage[data-approved="false"] {
+	background: rgba(255, 0, 0, 0.6);
+}
+
+#versionNumber {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    padding: 0;
+	background-color: white;
+}

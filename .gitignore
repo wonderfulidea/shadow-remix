@@ -1,0 +1,13 @@
+node_modules/
+*.DS_Store
+deploy.sh
+electron/build/
+electron/dist/
+electron/animations/
+gallery-admin/dist/
+*.env
+env.ts
+env.js
+env.js.map
+*.s#?
+*.b#?

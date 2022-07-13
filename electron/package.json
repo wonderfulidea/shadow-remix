@@ -1,0 +1,61 @@
+{
+  "name": "shadow-remix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "compile": "npm run copy-env && tsc --build --clean && tsc && copyfiles -f ../ui/dist/ui.js dist && copyfiles -f ../ui/dist/*.ttf dist && copyfiles -f ../ui/dist/*.png dist && npm run delete-env",
+    "start": "npm run compile && NODE_ENV=development electron ./dist/index.js",
+    "copy-env": "node copy_env.js",
+    "delete-env": "node -e \"require('fs').unlinkSync('src/env.ts')\"",
+    "build": "npm run compile && electron-builder -mw",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amanda Ghassaei",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/micromodal": "^0.3.3",
+    "@types/uuid": "^8.3.4",
+    "copyfiles": "^2.4.1",
+    "dotenv": "^16.0.0",
+    "electron": "^17.2.0",
+    "electron-builder": "^22.14.13",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1101.0",
+    "micromodal": "^0.4.10",
+    "serialport": "^10.4.0",
+    "uuid": "^8.3.2"
+  },
+  "build": {
+    "appId": "shadow.remix",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "index.html",
+      "main.css"
+    ],
+    "extraResources": [
+      "animations/*"
+    ],
+    "directories": {
+      "output": "./build"
+    },
+    "mac": {
+      "category": "public.app-category.education"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  }
+}

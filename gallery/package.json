@@ -1,0 +1,30 @@
+{
+  "name": "shadow-remix-gallery",
+  "version": "1.0.14",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve",
+    "build": "NODE_ENV=production webpack",
+    "deploy": "npm version patch && npm run build && ./deploy.sh && git add . && git ci -m \"iter version number\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amanda Ghassaei",
+  "license": "MIT",
+  "dependencies": {
+    "@egjs/grid": "^1.9.1",
+    "aws-sdk": "^2.1104.0",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "dotenv-webpack": "^7.1.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.6.3",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
