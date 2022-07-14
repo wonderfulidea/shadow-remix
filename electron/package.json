@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "compile": "npm run copy-env && tsc --build --clean && tsc && copyfiles -f ../ui/dist/ui.js dist && copyfiles -f ../ui/dist/*.ttf dist && copyfiles -f ../ui/dist/*.png dist && npm run delete-env",
+    "compile": "npm run copy-env && tsc --build --clean && tsc && copyfiles -f ../app/dist/ui.js dist && copyfiles -f ../app/dist/*.ttf dist && copyfiles -f ../app/dist/*.png dist && npm run delete-env",
     "start": "npm run compile && NODE_ENV=development electron ./dist/index.js",
     "copy-env": "node copy_env.js",
     "delete-env": "node -e \"require('fs').unlinkSync('src/env.ts')\"",

@@ -165,7 +165,7 @@ Shadow-Remix/
     arduino/
     docs/
     ....
-    ui/
+    app/
     .env
     .gitignore
     README.md
@@ -195,7 +195,7 @@ Follow the steps outlined in the main README for [Compiling Gallery](../README.m
 
 ## Hosting the Shadow Remix Web App
 
-The contents of [ui/dist][ui/dist] can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at []().## TODO: add link.
+The contents of [app/dist][app/dist] can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at []().## TODO: add link.
 
 
 ## Hosting Private Admin Server
@@ -208,7 +208,7 @@ These next steps will show you how to host a private admin server for approving 
 
 ![block public access to S3 bucket](images/block-public-access.png)
 
-For testing, upload the contents of [ui/dist/](ui/dist) to your bucket (we will replace this with the admin interface later).
+For testing, upload the contents of [app/dist/](app/dist) to your bucket (we will replace this with the admin interface later).
 
 Search for **Cloudfront** in AWS and navigate to the Cloudfront dashboard:
 

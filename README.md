@@ -16,7 +16,7 @@
 - [Serial Communication](#serial-communication)
 - [Code](#code)
   - [Install nodejs and npm](#install-nodejs-and-npm)
-  - [Compiling UI library](#compiling-ui-library)
+  - [Compiling UI Library](#compiling-ui-library)
   - [Compiling Desktop App](#compiling-desktop-app)
   - [Compiling Gallery](#compiling-gallery)
 
@@ -63,8 +63,8 @@ The museum exhibit features a motorized shadow-making setup and a panel of butto
 
 This repo consists of several subdirectories:
 
-- [ui](ui) folder contains the UI code for connecting to a webcam, drawing to the screen, and saving images.
-- [electron](electron) folder has code for compiling the desktop app with [Electron](https://www.electronjs.org/), it depends on the UI codebase.
+- [app](app) folder contains both a standalone browser-based application for shadow remix and the UI library code for connecting to a webcam, drawing to the screen, and saving images.
+- [electron](electron) folder has code for compiling the desktop app with [Electron](https://www.electronjs.org/), it depends on the UI codebase located within the `app` folder.
 - [gallery](gallery) folder has code for a publicly accessible gallery webpage showing images uploaded by users.
 - [gallery-admin](gallery-admin) folder has code for a private admin interface for approving images.
 - [arduino](arduino) folder contains arduino code for connecting hardware buttons to the app.
@@ -102,7 +102,7 @@ This app is primarily intended for use in a museum environment via a touchscreen
 
 ## Limitations
 
-- Currently, this app expects to receive webcam feeds in landscape orientation and renders out at the resolution specified in [ui/src/constants.ts](ui/src/constants.ts).  I've noticed that when mobile devices are in portrait mode, the returned width and height from `getUserMedia()` look like the stream is still in landscape.  I have not found a consistent way to correct this yet.
+- Currently, this app expects to receive webcam feeds in landscape orientation and renders out at the resolution specified in [app/src/constants.ts](app/src/constants.ts).  I've noticed that when mobile devices are in portrait mode, the returned width and height from `getUserMedia()` look like the stream is still in landscape.  I have not found a consistent way to correct this yet.
 
 
 ## Parts List
@@ -133,20 +133,20 @@ The serial communication protocol between the desktop app and Arduino is describ
 Before you compile any part of the code, you will need to [install nodejs and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) on your machine.  All compilation steps are done through the command line.
 
 
-### Compiling UI library
+### Compiling UI Library
 
-This repo comes with a pre-built version of the UI library, located at [ui/dist/ui.js](ui/dist/ui.js).  This library should be fine as is for most cases.  **If you do not plan to modify the UI code, skip to the [next section](#compiling-desktop-app).**
+This repo comes with a pre-built version of the UI library, located at [app/dist/ui.js](app/dist/ui.js).  This library should be fine as is for most cases.  **If you do not plan to modify the UI code, skip to the [next section](#compiling-desktop-app).**
 
 If you want to change the available colors, line thicknesses, and other aspects of the UI, you can make those edits within
-[ui/src/constants.ts](ui/src/constants.ts).
+[app/src/constants.ts](app/src/constants.ts).
 
-After make changes to the UI code you need to compile the `ui/src/` folder to `ui/dist/` using the following commands:
+After make changes to the UI code you need to compile the `app/src/` folder to `app/dist/` using the following commands:
 
 First, [install nodejs and npm](#install-nodejs-and-npm).
 
-In the terminal, navigate to the `ui` directory:
+In the terminal, navigate to the `app` directory:
 ```sh
-cd ui
+cd app
 ```
 
 Install all dependencies:
@@ -169,7 +169,7 @@ npm run start
 
 The javascript code in this repo is compiled with [Electron](https://www.electronjs.org/) so that it can be run as a desktop app (rather than in a web browser).
 
-You will need to compile your own desktop app after following the steps to [set up an AWS bucket and permissions](docs/Backend_Setup.md) and create an `.env` file with your access keys.  If make changes to the `ui` library, you will need to [compile it first](#compiling-ui-library) before compiling a new copy of the desktop app.
+You will need to compile your own desktop app after following the steps to [set up an AWS bucket and permissions](docs/Backend_Setup.md) and create an `.env` file with your access keys.  If make changes to the UI library in the `app` directory, you will need to [compile it first](#compiling-ui-library) before compiling a new copy of the desktop app.
 
 The desktop app features a screensaver mode where you can show animations of previously drawn shadow-remixes if the station has remained inactive for a period of time.  To enable this, you need to create a folder at `electron/animations/` and add several videos to this folder (preferably mp4).  After making these changes you will need to recompile the app.  Alternatively, if you would like to change these videos (or add new ones) without recompiling the app, you can edit the contents of the `resources/animations/` folder in the app's build and restart the app (on Mac, right click on the app's icon and select "Show Package Contents", on Windows right click on the app's icon and select "More > Open file location").  To be safe, use filenames without spaces for any animations you add to the app.
 
