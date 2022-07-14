@@ -1,5 +1,7 @@
 # Shadow Remix
 
+#TODO: add image and overview of project
+
 - [Overview](#overview)
   - [Shadow Remix App](#shadow-remix-app)
   - [Online Gallery](#online-gallery)
