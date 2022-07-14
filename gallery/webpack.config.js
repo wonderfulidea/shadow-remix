@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.ts',
   devtool: 'inline-source-map',
   devServer: {
-    static: 'dist/',
+    static: './',
     hot: true,
     liveReload: true,
   },
@@ -24,14 +24,6 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
-      // {
-      //   test: /\.svg$/,
-      //   loader: 'svg-inline-loader'
-      // },
-      // {
-      //   test: /\.png$/,
-      //   loader: 'file-loader'
-      // },
     ],
   },
   resolve: {
