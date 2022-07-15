@@ -3,6 +3,7 @@ import { saveImage } from './screenshot';
 import { state } from './State';
 import { showWebcamSelector } from './Webcam';
 
+// If you make changes to the hotkeys, be sure to update the README.
 window.addEventListener('keydown', (e: KeyboardEvent) => {
 	switch (e.key) {
 		case 's':
