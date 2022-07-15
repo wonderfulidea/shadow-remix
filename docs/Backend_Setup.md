@@ -195,7 +195,7 @@ Follow the steps outlined in the main README for [Compiling Gallery](../README.m
 
 ## Hosting the Shadow Remix Web App
 
-The contents of [app][app] (just index.html and the `dist` folder) can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at []().## TODO: add link.
+The contents of [app][app] (just index.html and the `dist` folder) can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulidea.co/shadow-remix/app/).
 
 
 ## Hosting Private Admin Server

@@ -2,6 +2,8 @@
 
 #TODO: add image and overview of project
 
+Live demo at: [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulidea.co/shadow-remix/app/)
+
 - [Overview](#overview)
   - [Shadow Remix App](#shadow-remix-app)
   - [Online Gallery](#online-gallery)
@@ -31,9 +33,9 @@ This project consists of a few pieces of code that interact with each other:
 
 TODO: add image
 
-The Shadow Remix drawing interface is available both as javascript code that runs in a web browser *or* as a compiled desktop app for Windows and Mac.  A live demo of the code is hosted at [TODO: add public link]().
+The Shadow Remix drawing interface is available both as javascript code that runs in a web browser *or* as a compiled desktop app for Windows and Mac.  A live demo of the code is hosted at [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulidea.co/shadow-remix/app/).
 
-The browser-based drawing interface does not have the ability to upload photos to [our online gallery](TODO: add link) due to security issues (we don't want to let anyone on the internet upload photos to the gallery), but it does let users save images to their computers.
+The browser-based drawing interface does not have the ability to upload photos to [our online gallery](https://apps.wonderfulidea.co/shadow-remix/gallery/) due to security issues (we don't want to let anyone on the internet upload photos to the gallery), but it does let users save images to their computers.
 
 You will need to [compile your own copy of the desktop Shadow Remix drawing interface](#compiling-desktop-app) with credentials for editing your database.
 
@@ -44,7 +46,7 @@ TODO: add image
 
 The gallery is a separate web app that displays approved photos drawn by visitors at the museum exhibition.  It has a feature where any new (unapproved) drawing made in the museum is shown for a brief period and then hidden until it is [approved by an admin](#gallery-admin-interface).
 
-The gallery is currently hosted at [TODO: add public link]().
+The gallery is currently hosted at [apps.wonderfulidea.co/shadow-remix/gallery/](https://apps.wonderfulidea.co/shadow-remix/gallery/).
 
 
 ### Gallery Admin Interface
@@ -73,8 +75,6 @@ This repo consists of several subdirectories:
 
 
 ## Use
-
-TODO: public url (web browser): 
 
 You need to compile your own Windows (64 and 32 bit) and Mac installers following the instructions for [compiling the desktop app](#compiling-desktop-app).  Once built, you should be able to install the app on any desktop setup.  These app is not signed and may require some additional steps to open:
 
@@ -119,8 +119,7 @@ See [docs/PCB.md](docs/PCB.md) for schematics and info about making circuit boar
 
 ## Backend Setup
 
-TODO: change gallery link.
-This app uses an AWS S3 bucket to store saved images in the cloud.  The saved images can be viewed through a webpage at []().  Info about configuring the AWS Backend can be found at [docs/Backend_Setup.md](docs/Backend_Setup.md).
+This app uses an AWS S3 bucket to store saved images in the cloud.  The saved images can be viewed through a webpage at [apps.wonderfulidea.co/shadow-remix/gallery/](https://apps.wonderfulidea.co/shadow-remix/gallery/).  Info about configuring the AWS Backend can be found at [docs/Backend_Setup.md](docs/Backend_Setup.md).
 
 
 ## Serial Communication
