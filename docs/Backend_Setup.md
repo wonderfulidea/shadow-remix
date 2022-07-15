@@ -190,12 +190,12 @@ Now that you've set up AWS and created a `.env` file, you need to recompile your
 
 ## Hosting a Public Image Gallery
 
-Follow the steps outlined in the main README for [Compiling Gallery](../README.md#compiling-gallery) to recompile the image gallery app.  After recompiling, the contents of `gallery/dist/` can be hosted online to provide a publicly accessible gallery view of your database.  Be sure to add the domain where your gallery is hosted to the list of [cross origin "AllowedOrigins"](#enable-cross-origin-requests).
+Follow the steps outlined in the main README for [Compiling Gallery](../README.md#compiling-gallery) to recompile the image gallery app.  After recompiling, the contents of [gallery][gallery] (just index.html and the `dist` folder) can be hosted online to provide a publicly accessible gallery view of your database.  Be sure to add the domain where your gallery is hosted to the list of [cross origin "AllowedOrigins"](#enable-cross-origin-requests).
 
 
 ## Hosting the Shadow Remix Web App
 
-The contents of [app/dist][app/dist] can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at []().## TODO: add link.
+The contents of [app][app] (just index.html and the `dist` folder) can be hosted online to provide a publicly accessible version of the shadow remix web app.  The web app will does not communicate with the server, so it does not need to be recompiled with your keys.  We are also hosting a version at []().## TODO: add link.
 
 
 ## Hosting Private Admin Server
@@ -208,7 +208,7 @@ These next steps will show you how to host a private admin server for approving 
 
 ![block public access to S3 bucket](images/block-public-access.png)
 
-For testing, upload the contents of [app/dist/](app/dist) to your bucket (we will replace this with the admin interface later).
+For testing, upload the contents of [app/](app) (just index.html and the `dist` folder) to your bucket (we will replace this with the admin interface later).
 
 Search for **Cloudfront** in AWS and navigate to the Cloudfront dashboard:
 
@@ -222,13 +222,15 @@ Edit the origin domain to point to your private bucket:
 
 ![cloudfront origin](images/cloudfront-origin-domain.png)
 
+Under **S3 bucket access** select **Yes use OAI (bucket can restrict access to only CloudFront)** and click the button to **Create new OAI**.  Then select **Yes, update the bucket policy**.
+
 Leave the remaining settings as they are and click **Create Distribution**.  It will take a few minutes for your distribution to be deployed; the status in the Cloudfront dashboard will read **In Progress** until then.  Anytime you make a change to Lambda or Cloudfront, you will need to wait for the Cloudfront distribution status to read **Deployed** before testing.
 
 Now search for **Lambda** in AWS:
 
 ![search for lambda](images/find-lambda.png)
 
-In the **Lambda** dashboard, click **Create Function**:
+In the **Lambda** dashboard, switch your region to us-east-1 (N Virginia) and click **Create Function**:
 
 ![create lambda function](images/create-lambda-function.png)
 
@@ -276,11 +278,11 @@ exports.handler = (event, context, callback) => {
 
 ![set function](images/set-function.png)
 
-Click **File>Save**.  Go to the **Versions**** tab and click **Publish New Version**:
+Click **File>Save** and click **Deploy**.  Go to the **Versions**** tab and click **Publish New Version**:
 
 ![publish new function version](images/publish-new-version.png)
 
-At the top of the page, select **Actions>Deploy to Lambda@Edge**.  Select the Cloudfront distribution that you just set up, set the **Cloudfront event** to **Viewer request**, select **include body** and **Confirm deploy to Lambda@Edge**, then select **Deploy**.
+Switch back to the code tab and click **Edit Code**.  At the top of the page, select **Actions>Deploy to Lambda@Edge**.  Select the Cloudfront distribution that you just set up, set the **Cloudfront event** to **Viewer request**, select **include body** and **Confirm deploy to Lambda@Edge**, then select **Deploy**.
 
 ![deploy function](images/deploy-function.png)
 
