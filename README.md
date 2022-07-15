@@ -141,6 +141,9 @@ This repo comes with a pre-built version of the UI library, located at [app/dist
 If you want to change the available colors, line thicknesses, and other aspects of the UI, you can make those edits within
 [app/src/constants.ts](app/src/constants.ts).
 
+If you want to change the hotkeys, you can make those edits within
+[app/src/hotkeys.ts](app/src/hotkeys.ts).
+
 After make changes to the UI code you need to compile the `app/src/` folder to `app/dist/` using the following commands:
 
 First, [install nodejs and npm](#install-nodejs-and-npm).
