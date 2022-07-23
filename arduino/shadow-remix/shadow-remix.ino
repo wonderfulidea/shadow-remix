@@ -10,9 +10,9 @@
 // Buttons should be connected to ground on one side and Arduino pin on the other.
 // (Using internal pullup resistor in Arduino, no need for external current limiting resistor).
 Button *buttons[] = {
-  new Button(SAVE_BUTTON_INDEX, 2), // Save Button connected to digital pin 2.
-  new Button(UNDO_BUTTON_INDEX, 3), // Undo Button connected to digital pin 3.
-  new Button(CLEAR_BUTTON_INDEX, 4), // Clear Button connected to digital pin 4.
+  new Button(SAVE_BUTTON_INDEX, 9), // Save Button connected to digital pin 9.
+  new Button(UNDO_BUTTON_INDEX, 10), // Undo Button connected to digital pin 10.
+  new Button(CLEAR_BUTTON_INDEX, 11), // Clear Button connected to digital pin 11.
 };
 
 // Define motor configuration.
@@ -21,8 +21,8 @@ Button *buttons[] = {
 // DRV8825 wiring diagram: https://a.pololu-files.com/picture/0J4233.1200.png?665d623ba84232de64511d8aa6644836
 Motor *motors[] = {
   // Motor(index, forwardPin, reversePin, motorDirPin, motorStepPin)
-  new Motor(0, 5, 6, 12, 13, A4), // Motor (index 0) with switch connected to pins 5, 6, and motor connected to 12, 13, reed switch connected to A4.
-  new Motor(1, 7, 8, 10, 11, A5), // Motor (index 1) with switch connected to pins 7, 8, and motor connected to 10, 11, reed switch connected to A5.
+  new Motor(1, 2, 3, A5, A4, 12), // Motor (index 0) with switch connected to pins 2, 3, and motor dir/step connected to A5, A4, reed switch connected to 12.
+  new Motor(0, 4, 5, A3, A2, 13), // Motor (index 1) with switch connected to pins 4, 5, and motor dir/step connected to A3, A2, reed switch connected to 13.
 };
 
 const int NUM_BUTTONS = sizeof(buttons) / sizeof(buttons[0]);
@@ -50,7 +50,7 @@ void setup() {
   }
 
   // Start by zeroing motors.
-  zero();
+//  zero();
 }
 
 void loop() {
