@@ -16,6 +16,7 @@ export const NUM_MOTOR_POSITION_BITS = NUM_COMMAND_DATA_BITS - NUM_MOTOR_INDEX_B
 export const BUTTON_COMMAND_CODE = 0; // Button pressed.
 export const MOTOR_COMMAND_CODE_HIGH = 1; // Motor moved, high bits.
 export const MOTOR_COMMAND_CODE_LOW = 2; // Motor moved, low bits.
+export const STATION_ID_COMMAND_CODE = 3 // Station ID.
 
 // Which buttons correspond to which functions.
 export const SAVE_BUTTON_INDEX = 0;

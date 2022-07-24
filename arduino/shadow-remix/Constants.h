@@ -1,6 +1,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+// You will need to change this when uploading to different station.
+#define STATION_ID = 0;
+
 // IMPORTANT!!
 // This file should stay in sync with /electron/src/constants.ts
 
@@ -17,6 +20,7 @@
 #define BUTTON_COMMAND_CODE 0 // Button pressed.
 #define MOTOR_COMMAND_CODE_HIGH 1 // Motor moved, high bits.
 #define MOTOR_COMMAND_CODE_LOW 2 // Motor moved, low bits.
+#define STATION_ID_COMMAND_CODE 3 // Station ID.
 
 // Which buttons correspond to which functions.
 #define SAVE_BUTTON_INDEX 0

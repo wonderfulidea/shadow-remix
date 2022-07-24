@@ -40,7 +40,14 @@ class Button
     byte _index;
 
     void _writeCommand() {
+      if (this->_index == SAVE_BUTTON_INDEX) {
+        this._sendStationID();
+      }
       Serial.write(BUTTON_COMMAND_CODE << NUM_COMMAND_DATA_BITS | this->_index);
+    }
+
+    void _sendStationID() {
+      Serial.write(STATION_ID_COMMAND_CODE << NUM_COMMAND_DATA_BITS | STATION_ID);
     }
 };
 

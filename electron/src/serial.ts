@@ -11,6 +11,7 @@ import {
 	BAUD_RATE,
 	MOTOR_COMMAND_CODE_LOW,
 	MOTOR_COMMAND_CODE_HIGH,
+	STATION_ID_COMMAND_CODE,
 } from './constants';
 import { DEV_MODE, HARDWARE_PARAMS } from './common';
 // @ts-ignore
@@ -32,16 +33,16 @@ refreshButton.className = 'modal__btn';
 refreshButton.id = 'refreshSerialPortList';
 refreshButton.onclick = refreshPortList;
 serialModalContent?.append(refreshButton);
-const stationIDLabel = document.createElement('span');
-stationIDLabel.innerHTML = 'Set Station ID:';
-stationIDLabel.id = 'stationIDLabel';
-const stationIDInput = document.createElement('input');
-stationIDInput.id = 'stationIDInput';
-stationIDInput.value = `${HARDWARE_PARAMS.stationID}`;
-stationIDInput.onkeyup = () => {
-	setStationID(stationIDInput.value);
-}
-serialModalContent?.prepend(stationIDLabel, stationIDInput);
+// const stationIDLabel = document.createElement('span');
+// stationIDLabel.innerHTML = 'Set Station ID:';
+// stationIDLabel.id = 'stationIDLabel';
+// const stationIDInput = document.createElement('input');
+// stationIDInput.id = 'stationIDInput';
+// stationIDInput.value = `${HARDWARE_PARAMS.stationID}`;
+// stationIDInput.onkeyup = () => {
+// 	setStationID(stationIDInput.value);
+// }
+// serialModalContent?.prepend(stationIDLabel, stationIDInput);
 
 
 window.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -88,9 +89,7 @@ async function refreshPortList() {
 	updatePortListUI();
 }
 
-function setStationID(value: string) {
-	const stationID = parseInt(value);
-	if (isNaN(stationID)) return;
+function setStationID(stationID: number) {
 	HARDWARE_PARAMS.stationID = stationID;
 	if (DEV_MODE()) console.log(`Setting station ID ${stationID}.`);
 }
@@ -199,6 +198,10 @@ function onPortData(buffer: any) {
 					currentMotorData = undefined;
 					break;
 				}
+			case STATION_ID_COMMAND_CODE:
+				const stationID = data;
+				setStationID(stationID);
+				break;
 			default:
 				if (DEV_MODE()) console.error(`Unknown command code: ${code}.`);
 				break;
