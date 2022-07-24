@@ -8,6 +8,12 @@ html {
     touch-action: none;
     -webkit-tap-highlight-color: transparent; /* for removing the highlight */
 }
+
+@font-face {
+    font-family: 'ShadowFont';
+    src: url('Lunch-Yq4y.ttf');
+}
+
 body {
     background: black;
     padding:0;
@@ -21,11 +27,6 @@ body {
     font-family: Lato,Helvetica,Arial,sans-serif;
     font-size: 18px;
     line-height: 1.72222;
-}
-
-@font-face {
-  font-family: 'ShadowFont';
-  src: url('Lunch-Yq4y.ttf');
 }
 
 #uiwrapper {

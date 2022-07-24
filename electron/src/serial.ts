@@ -47,7 +47,7 @@ serialModalContent?.prepend(stationIDLabel, stationIDInput);
 window.addEventListener('keydown', (e: KeyboardEvent) => {
 	switch (e.key) {
 		case 'p':
-			showSerialPortSelector();
+			showSerialPortSelector(undefined, true);
 			break;
 	}
 });
@@ -59,7 +59,7 @@ window.addEventListener('show_next_startup_modal', (e: CustomEvent) => {
 	}
 });
 
-export async function showSerialPortSelector(onClose?: () => void) {
+export async function showSerialPortSelector(onClose?: () => void, force = false) {
 	// Get available serial ports.
 	await refreshPortList();
 	if (portsList.length === 0) {
@@ -68,7 +68,7 @@ export async function showSerialPortSelector(onClose?: () => void) {
 	}
 	// Hardcode arduino serial name here.
 	const validPorts = portsList.filter(port => port.path.includes('usb'));
-	if (validPorts.length === 1) {
+	if (!force && validPorts.length === 1) {
 		// Don't show modal (for auto-loading program).
 		// TODO: what about the station id?
 		initConnection(validPorts[0]);

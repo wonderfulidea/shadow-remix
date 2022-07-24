@@ -9,3 +9,6 @@ if (process.env.NODE_ENV === 'development') {
 	// Display version number.
 	document.getElementById('versionNumber')!.innerHTML = `Version ${require('../package.json').version}`;
 }
+
+// Show UI after all css has loaded.
+document.getElementById('uiwrapper')!.style.display = 'flex';
