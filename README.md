@@ -22,6 +22,7 @@ Live demo at: [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulid
   - [Install nodejs and npm](#install-nodejs-and-npm)
   - [Compiling UI Library](#compiling-ui-library)
   - [Compiling Desktop App](#compiling-desktop-app)
+  - [Adding Screensaver Animations](#adding-screensaver-animations)
   - [Compiling Gallery](#compiling-gallery)
 
 
@@ -98,7 +99,7 @@ This app is primarily intended for use in a museum environment via a touchscreen
 - `backspace/delete` to clear
 - `c` brings up a dialog for selecting the webcam device
 - `p` brings up a dialog for selecting the serial port (desktop app only)
-- `v` saves your current drawing as an animated video (webm format).  Webm videos are large and difficult to play, but very fast to save – which is why we use them.  See instructions [here](https://github.com/amandaghassaei/canvas-capture#converting-webm-to-other-formats) for converting to mp4.  You can also use video editing software like Adobe Premiere to convert the video format.
+- `v` saves your current drawing as an animated video (webm format).  Webm videos are large and difficult to play, but very fast to save – which is why we use them.  You can also use video editing software like Adobe Premiere to convert the video format.  Once you have the mp4s, you can [add them to the desktop app](#adding-screensaver-animations).
 - `h` puts the app into screen saver mode (desktop app only).
 
 
@@ -175,8 +176,6 @@ The javascript code in this repo is compiled with [Electron](https://www.electro
 
 You will need to compile your own desktop app after following the steps to [set up an AWS bucket and permissions](docs/Backend_Setup.md) and create an `.env` file with your access keys.  If make changes to the UI library in the `app` directory, you will need to [compile it first](#compiling-ui-library) before compiling a new copy of the desktop app.
 
-The desktop app features a screensaver mode where you can show animations of previously drawn shadow-remixes if the station has remained inactive for a period of time.  To enable this, you need to create a folder at `electron/animations/` and add several videos to this folder (preferably mp4).  After making these changes you will need to recompile the app.  Alternatively, if you would like to change these videos (or add new ones) without recompiling the app, you can edit the contents of the `resources/animations/` folder in the app's build and restart the app (on Mac, right click on the app's icon and select "Show Package Contents", on Windows right click on the app's icon and select "More > Open file location").  To be safe, use filenames without spaces for any animations you add to the app.
-
 If you want to change things about the app's functionality (e.g. wait time before showing the screensaver, or which buttons map to which functions) you can make those edits within
 [electron/src/constants.ts](electron/src/constants.ts).
 
@@ -226,6 +225,13 @@ If you want to make changes to the app's code, you can quickly test them by runn
 npm run start
 ```
 This will open an app window and begin running the new code automatically.
+
+
+### Adding Screensaver Animations
+
+The desktop app features a screensaver mode where you can show animations of previously drawn shadow-remixes if the station has remained inactive for a period of time.  To create the videos, draw a shadow remix and then hit the `v` key when you are done.  This will step through your entire drawing sequence and save out a video (it may be a little slow).  Using a video editor, convert the webm videos that are saved to your computer into mp4.
+
+Next, you need to create a folder at `electron/animations/` and add several videos to this folder (with format mp4).  After making these changes you will need to recompile the app.  Alternatively, if you would like to change these videos (or add new ones) without recompiling the app, you can edit the contents of the `Resources/animations/` folder in the app's build and restart the app (on Mac, right click on the app's icon and select "Show Package Contents", on Windows right click on the app's icon and select "More > Open file location").  To be safe, use filenames without spaces for any animations you add to the app.
 
 
 ### Compiling Gallery
