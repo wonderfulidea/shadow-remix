@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 // You will need to change this when uploading to different station.
-#define STATION_ID = 0;
+#define STATION_ID 0
 
 // IMPORTANT!!
 // This file should stay in sync with /electron/src/constants.ts

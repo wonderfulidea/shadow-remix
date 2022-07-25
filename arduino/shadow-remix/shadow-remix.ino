@@ -50,7 +50,7 @@ void setup() {
   }
 
   // Start by zeroing motors.
-//  zero();
+  zero();
 }
 
 void loop() {

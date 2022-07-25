@@ -41,7 +41,7 @@ class Button
 
     void _writeCommand() {
       if (this->_index == SAVE_BUTTON_INDEX) {
-        this._sendStationID();
+        this->_sendStationID();
       }
       Serial.write(BUTTON_COMMAND_CODE << NUM_COMMAND_DATA_BITS | this->_index);
     }

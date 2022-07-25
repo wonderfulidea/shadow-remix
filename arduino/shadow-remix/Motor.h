@@ -51,8 +51,8 @@ class Motor
       if (this->_isZeroing) {
         // If in zeroing mode, drive forward until we trigger the reed switch.
         // Check if we've hit the switch.
-        this->_reedSwitch->update();
-        if (this->_reedSwitch->state() == LOW) {
+        bool reedStateChanged = this->_reedSwitch->update();
+        if (reedStateChanged && this->_zeroSteps > 180 && this->_reedSwitch->state() == LOW) {
           // Update internal motor position.
           this->_motorPosition = 0;
           // End zeroing mode.
@@ -99,9 +99,13 @@ class Motor
         newPosition = MAX_POSITION;
       }
       this->_motorPosition = newPosition;
+      if (this->_isZeroing) {
+        this->_zeroSteps += 1;
+      }
     }
 
     void startZeroingRoutine() {
+      this->_zeroSteps = 0;
       this->_isZeroing = true;
       // Drive motors forward until reed sensor is triggered.
       // This routine is picked up in update() function.
@@ -123,6 +127,7 @@ class Motor
     volatile bool _stepPinState = LOW;
     // Flag to signal zeroing mode.
     bool _isZeroing = false;
+    int _zeroSteps = 0; // Ensure that we rotate at least a half revolution during zero routine.
     ButtonDebounce *_reedSwitch;
   
     // Button instances.
