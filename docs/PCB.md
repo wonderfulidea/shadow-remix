@@ -62,3 +62,9 @@ These rivets are wide enough to let a 0.1" header pin pass through, simplifying 
 ## Getting PCBs professionally manufactured
 
 If you end up getting this PCB professionally manufactured, make sure that you connect the top and bottom ground planes in the design.  The current design has "GND" and a "GND_TOP" nets to make it work better for PCB milling (the nets end up getting connected by a via when the PCB is populated).  If you change the name of the GND_TOP net to GND and allow Eagle to recalculate the traces, then you should be ok for a more traditional PCB fabrication process.
+
+## Wiring
+
+See wiring diagram below:
+
+![PCB wiring diagram](images/wiring.png)
