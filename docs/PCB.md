@@ -23,7 +23,7 @@ Features:
 
 Parts List:
 
-(2x) DRV8825 Stepper Motor Driver [Pololu 2133](https://www.pololu.com/product/2133/pictures) (you can find these cheaper on Amazon)  
+(2x) A4988 Stepper Motor Driver [Amazon](https://www.amazon.com/HiLetgo-Stepstick-Stepper-Printer-Compatible/dp/B07BND65C8/)
 (1x) through-hole male header pins 0.1" spacing [Digikey S1011EC-40-ND](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PRPC040SAAN-RC/2775214?s=N4IgTCBcDaIMoEYAMCEFEDCBaALErAcgCIgC6AvkA)  
 (4x) through-hole female header pins 0.1" spacing [Digikey S7041-ND](https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPPC081LFBN-RC/810180)  
 (2x) 100uF Capacitor [Digikey 1572-1039-ND](https://www.digikey.com/en/products/detail/cornell-dubilier-illinois-capacitor/107CKE025MEM/5343969)  
