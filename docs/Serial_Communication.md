@@ -5,6 +5,7 @@ This document describes the serial commands for communicating between the Shadow
 - [Messages from Arduino to Desktop App](#messages-from-arduino-to-desktop-app)
   - [Button Pressed Commands](#button-pressed-commands)
   - [Motor Moved Commands](#motor-moved-commands)
+  - [Station ID Commands](#station-id-commands)
 - [Development](Development)
 
 
@@ -35,6 +36,14 @@ Motor moved commands are split into two bytes.  The first byte has a code of 1 a
 This format supports up to 4 (2^2) motors with 1024 (2^10) possible angle values (the current code only uses the number 0-360 to represent position).  The high and low bits are combined to form a 10 bit number:
 
 `H H H H L L L L L L`
+
+### Station ID Commands
+
+Station ID commands have a code of 3 and the data bits give the index (`I`) of the station.  So station ID commands have the form:
+
+`1 1 I I I I I I`
+
+This format supports up to 64 (2^6) stations.  You will need to hardcode the station ID of your station when you upload the Arduino code (default is zero).  See the Constants.h file in the Arduino code for more information.  The station ID is useful for comparing similar images taken at the same station once many images have been generated, it is not critical for basic use.
 
 
 ## Development

@@ -2,6 +2,10 @@
 #include "Button.h"
 #include "Motor.h"
 
+// !!!IMPORTANT!!!
+// Change the STATION_ID in Constants.h to set the station.
+// This will allow us to compare images that came from the same station.
+
 // Motor config.
 #define STEPPER_STEPS 200 // The number of steps on your motor.
 #define RPM 10 // RPM of motor (approx).

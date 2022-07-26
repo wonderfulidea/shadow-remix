@@ -71,7 +71,6 @@ export async function showSerialPortSelector(onClose?: () => void, force = false
 	const validPorts = portsList.filter(port => port.path.includes('usb'));
 	if (!force && validPorts.length === 1) {
 		// Don't show modal (for auto-loading program).
-		// TODO: what about the station id?
 		initConnection(validPorts[0]);
 		return;
 	}
