@@ -87,11 +87,11 @@ This work is distributed under an MIT license with exception to the "Lunch" font
 
 ## Hotkeys
 
-This app is primarily intended for use in a museum environment via a touchscreen and peripheral button controls.  If you have access to a keyboard, you can also use the following hotkeys:
+This app is primarily intended for use in a museum environment via a touchscreen and peripheral button controls.  If you have access to a keyboard or MakeyMakey, you can also use the following hotkeys:
 
-- `ctrl/command` + `z` to undo
-- `ctrl/command` + `s` to save image
-- `backspace/delete` to clear
+- `ctrl/command` + `z` OR `d` to undo
+- `ctrl/command` + `s` OR `a` to save image
+- `backspace/delete` OR `g` to clear
 - `c` brings up a dialog for selecting the webcam device
 - `p` brings up a dialog for selecting the serial port (desktop app only)
 - `v` saves your current drawing as an animated video (webm format).  Webm videos are large and difficult to play, but very fast to save – which is why we use them.  You can also use video editing software like Adobe Premiere to convert the video format.  Once you have the mp4s, you can [add them to the desktop app](#adding-screensaver-animations).
