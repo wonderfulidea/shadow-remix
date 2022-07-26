@@ -1,7 +1,5 @@
 # Shadow Remix
 
-#TODO: add image and overview of project
-
 Live demo at: [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulidea.co/shadow-remix/app/)
 
 - [Overview](#overview)
@@ -32,7 +30,7 @@ This project consists of a few pieces of code that interact with each other:
 
 ### Shadow Remix App
 
-TODO: add image
+![shadow remix app](docs/images/app.png)
 
 The Shadow Remix drawing interface is available both as javascript code that runs in a web browser *or* as a compiled desktop app for Windows and Mac.  A live demo of the code is hosted at [apps.wonderfulidea.co/shadow-remix/app/](https://apps.wonderfulidea.co/shadow-remix/app/).
 
@@ -43,7 +41,7 @@ You will need to [compile your own copy of the desktop Shadow Remix drawing inte
 
 ### Online Gallery
 
-TODO: add image
+![shadow remix gallery](docs/images/gallery.png)
 
 The gallery is a separate web app that displays approved photos drawn by visitors at the museum exhibition.  It has a feature where any new (unapproved) drawing made in the museum is shown for a brief period and then hidden until it is [approved by an admin](#gallery-admin-interface).
 
@@ -52,14 +50,12 @@ The gallery is currently hosted at [apps.wonderfulidea.co/shadow-remix/gallery/]
 
 ### Gallery Admin Interface
 
-TODO: add image
+![shadow remix admin interface](docs/images/admin.png)
 
 The gallery admin interface is a private web app that displays saved photos drawn by visitors at the museum exhibition and allows an admin to approve them for public viewing.  You will need to [compile and host your own copy of the admin interface](#compiling-gallery) with credentials for editing your database.
 
 
 ### Arduino
-
-TODO: add image
 
 The museum exhibit features a motorized shadow-making setup and a panel of button controls for easier interaction.  All the electronics for this exhibit are controlled by an [Arduino](https://www.arduino.cc/) which communicates via USB to the desktop app.
 
@@ -80,7 +76,6 @@ This repo consists of several subdirectories:
 You need to compile your own Windows (64 and 32 bit) and Mac installers following the instructions for [compiling the desktop app](#compiling-desktop-app).  Once built, you should be able to install the app on any desktop setup.  These app is not signed and may require some additional steps to open:
 
 - On Mac, hold down the control key and right click on the application icon, then select `Open`.  Confirm that you would like to open the application by an unidentified developer.  You should only need to do this the first time you run the application.  More info [here](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unidentified-developer-mh40616/mac).
-- On Windows... TODO: finish this.
 
 The first time you open the app, it will ask permission to access the webcam in a pop-up dialog.
 
