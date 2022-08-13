@@ -6,6 +6,13 @@ const CHECK_NEW_TIMER = 10 * 1000; // Time in ms to check for new images.
 const IMAGE_DURATION = 30 * 1000; // Time in ms for each image to remain on screen.
 const IMAGE_OVERLAY_DURATION = 12 * 1000; // Time in ms for brand new images to take over full screen.
 const REFRESH_LIST_INTERVAL = 24 * 60 * 60 * 1000; // Refresh main AWS list once a day.
+// We'll put some brakes on checking for new data to prevent extra AWS charges.
+// Only check from 10am to 10pm in current time zone.
+const START_HOUR = 10;
+const END_HOUR = 22;
+// Exploratorium is closed on Mon and Tues.
+const CLOSED_DAYS = [1, 2];// Integer between 0 and 6, where 0 is Sunday and 6 is Saturday.
+// TODO: we could also add a check for geolocation here.
 
 function DEV_MODE() {
 	return process.env.NODE_ENV === "development";
@@ -234,6 +241,15 @@ function checkApproved(approved: string) {
 }
 
 async function checkForNewImages(NUM_TO_CHECK = 10) {
+	// Let's put some brakes on this to prevent extra AWS charges.
+	// Only check from 10am to 10pm in current time zone.
+	const date = new Date();
+	const hour = date.getHours();
+	if (hour < START_HOUR || hour >= END_HOUR) return;
+	// Don't check on days Exploratorium is closed.
+	if (CLOSED_DAYS.indexOf(date.getDay()) >= 0) return;
+	
+
 	const items = await listItems(NUM_TO_CHECK);
 	const existingKeys: string[] = [];
 	for (let i = 0; i < Math.min(100, itemsAWS.length); i++) {
